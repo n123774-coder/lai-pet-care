@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin.html
+Disallow: /cart.html
+Disallow: /checkout.html
+Sitemap: https://lai-pet-care.greenlarch9.chatgpt.site/sitemap.xml

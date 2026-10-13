@@ -1,0 +1,15 @@
+node_modules/
+qa/
+*.zip
+.openai/local*
+.setup-template/
+.sites-runtime/
+.wrangler/
+.vinext/
+.next/
+.env*
+!.env.example
+dist/server/
+dist/client/
+public/
+dist/

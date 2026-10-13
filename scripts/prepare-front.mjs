@@ -1,0 +1,10 @@
+import {readFile,writeFile,mkdir,cp} from 'node:fs/promises';
+import vm from 'node:vm';
+await mkdir('public',{recursive:true});await mkdir('server',{recursive:true});
+const context={window:{}};vm.runInNewContext(await readFile('frontend/data.js','utf8'),context);
+await writeFile('server/seed.json',JSON.stringify(context.window.LAI_DATA,null,2));
+await writeFile('server/template.html',await readFile('frontend/index.html'));
+for(const name of ['assets','styles.css','data.js','app.js','admin.js','robots.txt'])await cp('frontend/'+name,'public/'+name,{recursive:true});
+await cp('node_modules/lucide/dist/umd/lucide.min.js','public/icons.js');
+await writeFile('public/styles.css',(await readFile('frontend/styles.css','utf8'))+'\n'+await readFile('frontend/admin-extra.css','utf8'));
+console.log('Prepared brand assets and database seed.');
