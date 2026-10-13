@@ -1,6 +1,7 @@
 node_modules/
 qa/
 *.zip
+*.tar.gz
 .openai/local*
 .setup-template/
 .sites-runtime/
